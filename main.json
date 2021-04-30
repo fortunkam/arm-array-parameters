@@ -8,13 +8,12 @@
                 "Yes",
                 "No"
             ],
-            "defaultValue": "No"
+            "defaultValue": "Yes"
         }
     },
     "functions": [],
     "variables": {
-        "ipRulesDev": {
-            "ipRules" : [
+        "ipRulesDev": [
                 {
                     "value" : "212.56.109.20",
                     "action" : "Allow"
@@ -23,16 +22,13 @@
                     "value" : "212.56.109.21",
                     "action" : "Allow"
                 }
-            ]
-        },
-        "ipRulesProd": {
-            "ipRules" : [
+            ],
+        "ipRulesProd": [
                 {
                     "value" : "212.56.109.20",
                     "action" : "Allow"
                 }
-            ]
-        },
+            ],
         "ipRules":  "[if(equals(parameters('isDev'), 'Yes'), variables('ipRulesDev'), variables('ipRulesProd'))]"
     },
     "resources": [
@@ -47,7 +43,7 @@
                 "contentVersion": "1.0.0.0"
             },
             "parameters": {
-                "networkAcls": {
+                "ipRuleArray": {
                     "value": "[variables('ipRules')]"
                 }
             }
