@@ -6,11 +6,11 @@
             "value" : {
                 "ipRules" : [
                     {
-                        "value" : "212.56.109.15",
+                        "value" : "212.56.109.20",
                         "action" : "Allow"
                     },
                     {
-                        "value" : "212.56.109.16",
+                        "value" : "212.56.109.21",
                         "action" : "Allow"
                     }
                 ]
