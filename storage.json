@@ -2,8 +2,8 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "networkAcls": {
-            "type": "object"
+        "ipRuleArray": {
+            "type": "array"
         }
     },
     "functions": [],
@@ -25,10 +25,10 @@
                     "copy": [
                         {
                             "name" : "ipRules",
-                            "count" : "[length(parameters('networkAcls').ipRules)]",
+                            "count" : "[length(parameters('ipRuleArray'))]",
                             "input" : {
-                                "value" : "[parameters('networkAcls').ipRules[copyIndex('ipRules')].value]",
-                                "action": "[parameters('networkAcls').ipRules[copyIndex('ipRules')].action]"
+                                "value" : "[parameters('ipRuleArray')[copyIndex('ipRules')].value]",
+                                "action": "[parameters('ipRuleArray')[copyIndex('ipRules')].action]"
                             }
 
                         }
